@@ -16,7 +16,7 @@ def corr_sim(a,b):
   covar=tf.squeeze(tfp.stats.covariance(a,b),axis=2)
   vara=tfp.stats.variance(a)
   varb=tfp.stats.variance(b)
-  return 1-tf.reduce_mean(tf.squeeze((covar/(tf.sqrt(a)*tf.sqrt(b)))))
+  return 1-tf.reduce_mean(tf.squeeze((covar/(tf.sqrt(vara)*tf.sqrt(varb)))))
 def outlier(args):
     args=sorted(args)
     outlist=[]
